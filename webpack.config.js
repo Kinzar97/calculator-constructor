@@ -20,12 +20,15 @@ module.exports = {
         use: 'ts-loader',
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        test: /\.(css|less)$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
       },
     ]
   },
   devtool: prod ? undefined : 'source-map',
+  devServer:{
+    port: 3000
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html',
